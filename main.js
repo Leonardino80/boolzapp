@@ -34,7 +34,7 @@ $(document).ready(function(){
     $('.conversation').append(new_message2);
   };
 
-  $('.search_user').keyup( function(event) {
+  $('.search_user').keyup( function() {
     var user_cercato = $(this).val().toLowerCase();
     console.log(user_cercato);
     // metto da parte quello che cerca l'utente
