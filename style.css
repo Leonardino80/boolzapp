@@ -79,18 +79,17 @@ section:last-child{
   height: 10vh;
 }
 
-.template{
-  overflow: auto;
-}
-
 .message{
-  width: 200px;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 15px;
   float: left;
   display: block;
+}
+
+#user_text{
+  width: 800px;
 }
 
 .message:after{
@@ -102,4 +101,9 @@ section:last-child{
 .message.mine{
   float: right;
   background-color: green;
+}
+
+.hidden{
+  display: none;
+
 }
