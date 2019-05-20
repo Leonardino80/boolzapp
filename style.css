@@ -45,7 +45,7 @@ section:last-child{
   border-style: solid;
 }
 
-.user{
+.user,.userwindow{
   line-height: 100px;
   border-width: 0 1px 1px 1px;
   border-color: black;
@@ -69,7 +69,8 @@ section:last-child{
 }
 
 .conversation{
-  height: 80vh;
+  padding: 30px;
+  height: 85vh;
   overflow-y: auto;
   background-color: lightgrey;
   display:flex;
@@ -79,7 +80,21 @@ section:last-child{
 }
 
 .input_window{
-  height: 10vh;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+#user_text{
+  overflow:hidden;
+  resize:none;
+  width:200px;
+  height:50px;
+  border-radius: 25px;
+  line-height: 50px;
+  padding: 0 0 0 25px;
 }
 
 .message{
@@ -101,4 +116,26 @@ section:last-child{
 .hidden{
   display: none;
 
+}
+
+.active{
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

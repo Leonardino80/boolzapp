@@ -15,7 +15,7 @@ $(document).ready(function(){
       // vado a clonare il contenuto del template (non ".template" ma ."template .message" fatto
       new_message.children('.text-message').text(message_text);
       // appendo il messaggio nella chat
-      $('.conversation').append(new_message);
+      $('.conversation.active').append(new_message);
       // azzero il form mettendo valore stringa vuota
       $('#user_text').val('');
       // arriva la risposta automatica dopo 1 secondo
@@ -31,7 +31,7 @@ $(document).ready(function(){
     // vado a clonare il contenuto del template (non ".template" ma ."template .message" fatto
     new_message2.children('.message_received').text(message__received);
     // appendo il messaggio nella chat
-    $('.conversation').append(new_message2);
+    $('.conversation.active').append(new_message2);
   };
 
   $('.search_user').keyup( function() {
@@ -50,3 +50,26 @@ $(document).ready(function(){
     });
   });
 });
+
+// selezione della conversazione
+
+$('.user').click(function(){
+  // tolgo la classe active a tutti i contatti con classe USER
+  $('.user').removeClass('active');
+  // rendo attivo quello cliccato
+  $(this).addClass('active');
+  // importante è che inizi con data l'attributo (lo vado a pescare quello cliccato THIS)
+  var conversazione = &(this).attr('data-conversation');
+  // intercetto la conversazione corrispondente fissando una variabile
+  var display_conversazione = $(.'conversazione[data-conversazione="'+conversazione+'"]');
+  // nascondo le conversazioni precedenti
+  $('.conversazione').removeClass('active');
+  // toggle  del cl active al display corrispondente al contatto cliccato
+  display_conversazione.toggleClass('active');
+});
+
+// opzione cancella (dropdowncol css!!!)
+
+$(document).on('click' , '.dropdown-content', function(){
+  $(this).closest('.message').hide();
+})
